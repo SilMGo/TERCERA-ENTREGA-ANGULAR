@@ -1,0 +1,83 @@
+<!-- inicio sidebarv-->
+
+<mat-drawer-container class="dashboard-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <mat-nav-list>
+        <a
+      
+        routerLinkActive
+      
+        routerLink="home" 
+        mat-list-item>INICIO
+      </a>
+       
+        <a 
+        
+        routerLinkActive
+       
+        routerLink="alumnos-users" 
+        mat-list-item>ALUMNOS
+      </a>
+       
+      <a 
+     
+      routerLinkActive
+      
+      routerLink="cursos-products" 
+      mat-list-item>CURSOS
+    </a>
+
+    <a
+   
+      routerLinkActive
+     
+      routerLink="aunth/loguin-aunth" 
+     mat-list-item>Inscripciones
+    </a>
+  
+
+      <a (click)="logout()" 
+        routerLinkActive
+        
+        routerLink="aunth/loguin-aunth" 
+       mat-list-item>Cerrar sesion</a>
+      </mat-nav-list>
+
+    </mat-drawer>
+<!-- fin sidebar-->
+
+      <div class="example-sidenav-content">
+
+    <!-- inicio toolbar-->
+      <mat-toolbar color="primary">
+          <!-- boton del menu-->
+        <button  
+        (click)="drawer.toggle()"
+        mat-icon-button 
+        class="example-icon" 
+        aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Mi Aplicación</span>
+       
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+          <mat-icon>share</mat-icon>
+        </button>
+      </mat-toolbar>
+     <!-- fin toolbar-->
+   
+
+<!--ver aqui pagina alumnos-users-->
+<div class="p-3">
+  <router-outlet></router-outlet>
+<!-- <app-pipes></app-pipes> --> 
+<!-- <app-alumnos-users></app-alumnos-users> -->
+</div>
+     </div>
+     </mat-drawer-container>
+    
+ 
