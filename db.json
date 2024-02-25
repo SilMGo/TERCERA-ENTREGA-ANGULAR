@@ -1,56 +1,106 @@
 {
-  "alumnos": [
+  "users": [
     {
-      "id": 1,
-      "name": "Juan",
-      "lastName": "Lopez",
-      "email": "juanlop125@gmail.com",
+      "id": "6",
+      "firstName": "Flavia",
+      "lastName": "Perez",
+      "email": "Jas@gmail.com",
+      "password": "123",
+      "role": "USER",
+      "token": "sdfgs34345dfgg34"
+    },
+    {
+      "id": "7",
+      "firstName": "Mariana",
+      "lastName": "Leon",
+      "email": "Leond@gmail.com",
+      "password": "123",
+      "role": "ADMIN",
+      "token": "sdsffg457"
+    },
+    {
+      "id": "8",
+      "firstName": "Emiliano",
+      "lastName": "Tello",
+      "email": "sfdf23@gmail.com",
+      "password": "14423",
+      "role": "ADMIN",
+      "token": "4355gfee33fef"
+    },
+    {
+      "id": "9",
+      "firstName": "Roberto",
+      "lastName": "Flor",
+      "email": "Eri2574@gmail.com",
+      "password": "123243",
+      "role": "ADMIN",
+      "token": "sd33fsdsdsdgsdfgg34"
+    },
+    {
+      "id": 666,
+      "name": "Julio",
+      "lastName": "Lz",
+      "email": "asd125@gmail.com",
       "rol": "ADMIN"
-    },
-    {
-      "id": 2,
-      "name": "Celina",
-      "lastName": "Rodriguez",
-      "email": "celiro122@gmail.com",
-      "rol": "ALUM"
-    },
-    {
-      "id": 3,
-      "name": "Romina",
-      "lastName": "Gonzalez",
-      "email": "RoroG125@gmail.com",
-      "rol": "ALUM"
-    },
-    {
-      "id": "00b2",
-      "name": "qwqw",
-      "lastName": "qw",
-      "email": "qw",
-      "rol": "q"
-    },
-    {
-      "id": "e431",
-      "name": "s",
-      "lastName": "s",
-      "email": "s",
-      "rol": "s"
-    },
-    {
-      "id": "55c9",
-      "name": "s",
-      "lastName": "",
-      "email": "",
-      "rol": ""
     }
   ],
-  "cursos": [
+  "products": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": "2",
+      "name": "Teclado Mecanico",
+      "createdAt": "2024-02-19T23:32:38.758Z"
     }
   ],
-  "inscripcions": {
-    "name": "typicode"
-  }
+  "sales": [
+    {
+      "id": "1",
+      "userId": null,
+      "productId": 2
+    },
+    {
+      "id": "307f",
+      "userId": "jddld",
+      "productId": 2
+    },
+    {
+      "id": "6818",
+      "productId": 2,
+      "userId": "jddld"
+    },
+    {
+      "id": "9a30",
+      "productId": 2,
+      "userId": "jddld"
+    },
+    {
+      "id": "66dc",
+      "productId": 2,
+      "userId": "jddld"
+    },
+    {
+      "id": "630f",
+      "productId": 2,
+      "userId": "jddld"
+    },
+    {
+      "id": "917f",
+      "productId": 2,
+      "userId": "jddld"
+    },
+    {
+      "id": "5868",
+      "productId": 2,
+      "userId": ""
+    },
+    {
+      "id": "d2ec",
+      "userId": "jddld",
+      "productId": 2
+    },
+    {
+      "id": "264a",
+      "productId": "",
+      "userId": ""
+    }
+  ]
 }

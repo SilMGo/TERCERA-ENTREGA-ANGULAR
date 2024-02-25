@@ -5,7 +5,7 @@ import { Inject, inject } from '@angular/core';
 export const adminGuard: CanActivateFn = (route, state) => {
   const router= inject (Router);
   const authService = inject(AuthService);
-  return authService.authUser?.rol === 'ADMIN'
+  return authService.authUser?.role === 'ADMIN'
     ? true
     : router.createUrlTree(['dashboard', 'home']);
 };

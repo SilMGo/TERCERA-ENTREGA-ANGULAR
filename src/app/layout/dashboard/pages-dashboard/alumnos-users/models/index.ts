@@ -1,7 +1,9 @@
-export interface Alumno {
-    id:number;
-    name: string;
+export interface User {
+    id: number;
+    firstName: string;
     lastName: string;
     email: string;
-    rol: string;
-}
+    password: string;
+    role: string;
+    token: string;
+  }
