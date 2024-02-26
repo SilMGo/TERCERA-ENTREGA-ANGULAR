@@ -22,7 +22,7 @@ export class AlumnosService {
 
 generateString(length: number) {
   const characters =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    'Aijklmnopqrstuvwxyz0123456789';
   let result = ' ';
   const charactersLength = characters.length;
   for (let i = 0; i < length; i++) {
@@ -48,7 +48,7 @@ getUsers() {
     })
     .pipe(
       catchError((error) => {
-        this.alertservice.showError('Error al cargar los usuarios');
+        this.alertservice.showError('Error al cargar los datos');
         return of([]);
       })
     );

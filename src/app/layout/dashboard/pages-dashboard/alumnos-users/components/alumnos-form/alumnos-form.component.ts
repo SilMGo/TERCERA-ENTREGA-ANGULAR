@@ -10,28 +10,27 @@ import { User } from '../../models';
 })
 export class AlumnosFormComponent {
  
-  alumnoForm:FormGroup;
+  userForm:FormGroup;
 
-constructor(
-  private fb: FormBuilder,
-  private dialogref:MatDialogRef<AlumnosFormComponent>,
-  @Inject (MAT_DIALOG_DATA) private editingAlumno?: User,
-  ) {
-  this.alumnoForm = this.fb.group({
-    name: this.fb.control('', Validators.required),
-    lastName: this.fb.control('', Validators.required),
-    email: this.fb.control('', Validators.required),
-    rol: this.fb.control('', Validators.required),
-  });
+  @Output()
+  userSubmitted = new EventEmitter();
 
-  if (editingAlumno) {
-    this.alumnoForm.patchValue(editingAlumno);
+  constructor(private fb: FormBuilder) {
+    this.userForm = this.fb.group({
+      firstName: this.fb.control('', Validators.required),
+      lastName: this.fb.control('', Validators.required),
+      email: this.fb.control('', Validators.required),
+      password: this.fb.control('', Validators.required),
+      role: this.fb.control('', Validators.required),
+    });
   }
-}
 
-
-onSave(): void {
-  this.dialogref.close(this.alumnoForm.value)
-}
-
+  onSubmit(): void {
+    if (this.userForm.invalid) {
+      this.userForm.markAllAsTouched();
+    } else {
+      this.userSubmitted.emit(this.userForm.value);
+      this.userForm.reset();
+    }
+  }
 }

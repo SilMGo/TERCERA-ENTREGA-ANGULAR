@@ -4,25 +4,26 @@
     <mat-drawer #drawer class="example-sidenav" mode="side">
       <mat-nav-list>
         <a
-      
+        #homeLink="routerLinkActive"
         routerLinkActive
-      
-        routerLink="home" 
-        mat-list-item>INICIO
-      </a>
+        [activated]="homeLink.isActive"
+        routerLink="home"
+        mat-list-item
+        >Inicio</a
+      >
        
         <a 
-        
+        #alumnosLInk="routerLinkActive"
         routerLinkActive
-       
+        [activated]="alumnosLInk.isActive "
         routerLink="alumnos-users" 
         mat-list-item>ALUMNOS
       </a>
        
       <a 
-     
+      #cursosLInk="routerLinkActive"
       routerLinkActive
-      
+      [activated]="cursosLInk.isActive "
       routerLink="cursos-products" 
       mat-list-item>CURSOS
     </a>

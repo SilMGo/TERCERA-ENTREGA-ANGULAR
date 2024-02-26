@@ -6,16 +6,16 @@ import { LoadingService } from "../../../../core/services/loading.service";
 //BASE DE DATOS
 let cursos: Curso []=[
     {id: 1,
-    name: 'assdfsdfd',
+    name: 'Inglés',
     startDate: new Date ()
     },    
     {id: 245,
-    name: 'qsdfsdfwe',
+    name: 'Matemática',
     startDate: new Date ()
     }, 
     
     {id: 13,
-    name: 'zsdfsdfxc',
+    name: 'Ciencias Sociales',
     startDate: new Date ()
     }, 
 ]
@@ -24,7 +24,7 @@ export class CursosService {
 
     constructor (private loadingService: LoadingService) {}
 
-  getCursos () {
+  getCursos() {
     this.loadingService.setIsLoading(true)
     return of(cursos).pipe(
         delay (2000),//demorará 2seg en cargar la tabla de cursos

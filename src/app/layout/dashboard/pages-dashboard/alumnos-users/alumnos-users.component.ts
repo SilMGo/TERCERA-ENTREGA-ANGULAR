@@ -11,6 +11,7 @@ import { AlumnosFormComponent } from './components/alumnos-form/alumnos-form.com
 import { LoadingService } from '../../../../core/services/loading.service';
 import { forkJoin } from 'rxjs';
 import { PageEvent } from '@angular/material/paginator';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -62,16 +63,16 @@ export class AlumnosUsersComponent  implements OnInit {
       complete: () => {
         this.loadingService.setIsLoading(false);
       },
-      // error: (error) => {
-      //   if (error instanceof HttpErrorResponse) {
-      //     if (error.status === 500) {
-      //       alert('Error del servidor')
-      //     }
-      //     if (error.status === 404) {
+      error: (error) => {
+        if (error instanceof HttpErrorResponse) {
+         if (error.status === 500) {
+        alert('Error del servidor')
+         }
+         if (error.status === 404) {
 
-      //     }
-      //   }
-      // },
+         }
+       }
+      },
     });
   }
 
