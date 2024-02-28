@@ -20,6 +20,7 @@ export class AlumnosService {
         private alertservice: AlertService, 
         private httpClient: HttpClient) {}
 
+        //random aleatorio
 generateString(length: number) {
   const characters =
     'Aijklmnopqrstuvwxyz0123456789';
@@ -30,6 +31,10 @@ generateString(length: number) {
   }
   return result;
 }
+
+
+
+
 
 getUserById(id: number | string): Observable<User | undefined> {
   return this.httpClient.get<User>(`${environment.apiURL}/users/${id}`);
@@ -63,8 +68,7 @@ paginate(page: number, perPage = 5) {
 createUser(payload: User) {
   return this.httpClient
     .post<User>(`${environment.apiURL}/users`, {
-      ...payload,
-      token: this.generateString(15),
+      ...payload,token: this.generateString(8),
     })
     .pipe(mergeMap(() => this.getUsers()));
 }
