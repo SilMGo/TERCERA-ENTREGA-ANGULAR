@@ -1,24 +1,6 @@
 {
   "users": [
     {
-      "id": "6",
-      "firstName": "Flavia",
-      "lastName": "Perez",
-      "email": "123@123.com",
-      "password": "123",
-      "role": "USER",
-      "token": "sdfgs34345dfgg34"
-    },
-    {
-      "id": "7",
-      "firstName": "Mariana",
-      "lastName": "Leon",
-      "email": "Leond@gmail.com",
-      "password": "123",
-      "role": "ADMIN",
-      "token": "sdsffg457"
-    },
-    {
       "id": "8",
       "firstName": "Emiliano",
       "lastName": "Tello",

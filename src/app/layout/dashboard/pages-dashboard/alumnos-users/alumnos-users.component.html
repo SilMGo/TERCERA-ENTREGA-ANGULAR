@@ -1,10 +1,12 @@
 <h1> ALUMNOS</h1>
-
-  <div class="mb-3">
-    <!--<app-alumno-form (userSubmitted)="onUserSubmitted($event)"></app-alumno-form> -->
+<div class="flex-justify-content-end" mb-3>
+  <button mat-button (click)="showForm = true">AGREGAR</button>
+</div>
+  <div class="mb-3" *ngIf="showForm">
+    <app-alumnos-form (userSubmitted)="onUserSubmitted($event)"></app-alumnos-form> 
   </div>
  
-  <pre>{{ roles | json }}</pre>
+   <!--   <pre>{{ roles | json }}</pre>-->
   
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!--- Note that these columns can be defined in any order.

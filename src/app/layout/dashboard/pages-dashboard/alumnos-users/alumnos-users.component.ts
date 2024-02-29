@@ -32,6 +32,7 @@ export class AlumnosUsersComponent  implements OnInit {
   pageSize = 5;
   currentPage = 1;
 
+  showForm: boolean = false;
   constructor(
     private alumnoService: AlumnosService,
     private loadingService: LoadingService,
@@ -110,4 +111,7 @@ export class AlumnosUsersComponent  implements OnInit {
       },
     });
   }
-}
+
+
+  }
+
