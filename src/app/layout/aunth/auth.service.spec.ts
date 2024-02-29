@@ -12,7 +12,7 @@ describe('Pruebas de AuthService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AuthService, Store],  // Asegúrate de agregar Store como proveedor
+      providers: [AuthService, Store], 
       imports: [HttpClientTestingModule, StoreModule.forRoot({})],
     });
 
@@ -38,17 +38,17 @@ describe('Pruebas de AuthService', () => {
       },
     ];
 
-    spyOn(store, 'dispatch');  // Espiamos el método dispatch del Store
+    spyOn(store, 'dispatch'); 
 
-    // Llamamos al login
+   
     authService.login({ email: 'mock@mail.com', password: 'password' }).subscribe({
       next: () => {
-        // Verificamos que el login haya llamado al dispatch con la acción correcta
+        
         expect(store.dispatch).toHaveBeenCalledWith(AuthActions.setAuthUser({ user: MOCK_RESPONSE[0] }));
       },
     });
 
-    // Sobre escribimos la request por una request falsa
+   
     httpController
       .expectOne({
         url: 'http://localhost:3000/users?email=mock@mail.com&password=password',
