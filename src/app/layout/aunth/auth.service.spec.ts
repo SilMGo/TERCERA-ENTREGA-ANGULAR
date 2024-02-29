@@ -1,31 +1,31 @@
 import { TestBed } from '@angular/core/testing';
-import {
-  HttpClientTestingModule,
-  HttpTestingController,
-} from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { AuthService } from './auth.service';
 import { User } from '../dashboard/pages-dashboard/alumnos-users/models';
-
+import { Store, StoreModule } from '@ngrx/store';  // Asegúrate de importar Store
+import { AuthActions } from '../../core/store/auth/actions';
 
 describe('Pruebas de AuthService', () => {
   let authService: AuthService;
   let httpController: HttpTestingController;
+  let store: Store;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AuthService],
-      imports: [HttpClientTestingModule],
+      providers: [AuthService, Store],  // Asegúrate de agregar Store como proveedor
+      imports: [HttpClientTestingModule, StoreModule.forRoot({})],
     });
 
     authService = TestBed.inject(AuthService);
     httpController = TestBed.inject(HttpTestingController);
+    store = TestBed.inject(Store);
   });
 
   it('AuthService debe estar definido', () => {
     expect(authService).toBeTruthy();
   });
 
-  it('Al llamar login() debe establecer un authUser', () => {
+  it('Al llamar login() debe establecer un authUser en el Store', () => {
     const MOCK_RESPONSE: User[] = [
       {
         id: 23,
@@ -38,15 +38,15 @@ describe('Pruebas de AuthService', () => {
       },
     ];
 
+    spyOn(store, 'dispatch');  // Espiamos el método dispatch del Store
+
     // Llamamos al login
-    authService
-      .login({ email: 'mock@mail.com', password: 'password' })
-      .subscribe({
-        next: () => {
-          // Verificamos que el login establezca correctamente el usuario
-          expect(authService.authUser).toEqual(MOCK_RESPONSE[0]);
-        },
-      });
+    authService.login({ email: 'mock@mail.com', password: 'password' }).subscribe({
+      next: () => {
+        // Verificamos que el login haya llamado al dispatch con la acción correcta
+        expect(store.dispatch).toHaveBeenCalledWith(AuthActions.setAuthUser({ user: MOCK_RESPONSE[0] }));
+      },
+    });
 
     // Sobre escribimos la request por una request falsa
     httpController
